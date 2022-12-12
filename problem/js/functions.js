@@ -209,6 +209,63 @@ function create_programme (programme) {
 
   */  
 
+  let university;
+  let city;
+  let country;
+  let level;
+  let subject;
+  let language;
+
+  for(let i = 0; i < UNIVERSITIES.length; i++){
+    if(programme.universityID === UNIVERSITIES[i].id){
+      university = UNIVERSITIES[i];
+
+      for(let ii = 0; ii < CITIES.length; ii++){
+        if(UNIVERSITIES[i].cityID === CITIES[ii].id){
+          city = CITIES[ii];
+          
+          for(let iii = 0; iii < COUNTRIES.length; iii++){
+            if(CITIES[ii].countryID === COUNTRIES[iii].id){
+              country = COUNTRIES[iii];
+            }
+          }
+        }
+      }
+    }
+  }
+
+  for(let i = 0; i < LEVELS.length; i++){
+    if(programme.levelID === LEVELS[i].id){
+      level = LEVELS[i];
+    }
+  }
+  for(let i = 0; i < SUBJECTS.length; i++){
+    if(programme.subjectID === SUBJECTS[i].id){
+      subject = SUBJECTS[i];
+    }
+  }
+  for(let i = 0; i < LANGUAGES.length; i++){
+    if(programme.languageID === LANGUAGES[i].id){
+      language = LANGUAGES[i];
+    }
+  }
+
+
+  const parent = document.querySelector("#programmes");
+
+  const li_dom = document.createElement("li");
+  parent.appendChild(li_dom);
+  li_dom.classList.add("programme");
+
+  li_dom.innerHTML = `
+  <p>${programme.name}</p>
+  <p>${university.name}</p>
+  <p>${city.name}, ${country.name}</p>
+  <p>${level.name}, ${subject.name}, ${language.name}</p>
+
+  <p class="bottom_programme">${city.name}, sun-index: ${city.sun}</p>
+  `
+
 }
 
 
