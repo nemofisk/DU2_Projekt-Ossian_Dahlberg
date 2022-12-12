@@ -218,7 +218,6 @@ function update_programmes () {
   */
 
   const filtered_programmes_array = read_filters();
-  console.log(filtered_programmes_array.length);
   if(filtered_programmes_array.length > 0){
     document.querySelector("#programmes > p").innerHTML = "";
   }else{
