@@ -264,6 +264,8 @@ function update_programmes () {
   console.log(filtered_programmes_array.length);
   if(filtered_programmes_array.length > 0){
     document.querySelector("#programmes > p").innerHTML = "";
+  }else{
+    document.querySelector("#programmes > p").innerHTML = "Inga program upfyller nuvarande filter.";
   }
   const programmes_list = document.querySelector("#programmes > ul");
   programmes_list.innerHTML = "";
