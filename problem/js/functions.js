@@ -229,6 +229,7 @@ function create_programme (programme) {
   const li_dom = document.createElement("li");
   parent.appendChild(li_dom);
   li_dom.classList.add("programme");
+  li_dom.classList.add("container");
 
   li_dom.innerHTML = `
   <p>${programme.name}</p>
