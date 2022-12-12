@@ -18,8 +18,7 @@ function click_filter_element (event) {
     NO RETURN VALUE
 
   */
-    event.target.classList.toggle("selected");
-    update_programmes();
+
 }
 
 
@@ -46,19 +45,7 @@ function create_filter_element (data) {
     RETURN VALUE
       Returns a reference to the new dom-element
   */
- 
-      const parent = data.parent;
-      const klass = data.class;
-      const text_content = data.textContent;
-    
-      const li_dom = document.createElement("li");
-      parent.appendChild(li_dom);
-      li_dom.classList.add(klass);
-      li_dom.textContent = text_content;
-    
-      li_dom.addEventListener("click", click_filter_element);
 
-      return li_dom;
 }
 
 
@@ -209,36 +196,6 @@ function create_programme (programme) {
 
   */  
 
-  const university = get_object(programme.universityID, UNIVERSITIES);
-  const city = get_object(university.cityID, CITIES);
-  const country = get_object(city.countryID, COUNTRIES);
-  const level = get_object(programme.levelID, LEVELS);
-  const subject = get_object(programme.subjectID, SUBJECTS);
-  const language = get_object(programme.languageID, LANGUAGES);
-
-  function get_object(object_id, database_array){
-    for(let i = 0; i < database_array.length; i++){
-      if(object_id === database_array[i].id){
-        return database_array[i]
-      }
-    }
-  }
-
-  const parent = document.querySelector("#programmes > ul");
-
-  const li_dom = document.createElement("li");
-  parent.appendChild(li_dom);
-  li_dom.classList.add("programme");
-
-  li_dom.innerHTML = `
-  <p>${programme.name}</p>
-  <p>${university.name}</p>
-  <p>${city.name}, ${country.name}</p>
-  <p>${level.name}, ${subject.name}, ${language.name}</p>
-
-  <p class="bottom_programme">${city.name}, sun-index: ${city.sun}</p>
-  `
-
 }
 
 
@@ -261,7 +218,6 @@ function update_programmes () {
   */
 
   const filtered_programmes_array = read_filters();
-  console.log(filtered_programmes_array.length);
   if(filtered_programmes_array.length > 0){
     document.querySelector("#programmes > p").innerHTML = "";
   }else{
