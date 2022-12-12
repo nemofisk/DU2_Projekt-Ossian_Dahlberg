@@ -216,10 +216,10 @@ function create_programme (programme) {
   const subject = get_object(programme.subjectID, SUBJECTS);
   const language = get_object(programme.languageID, LANGUAGES);
 
-  function get_object(data_id, data_array){
+  function get_object(object_id, database_array){
     for(let i = 0; i < data_array.length; i++){
-      if(data_id === data_array[i].id){
-        return data_array[i]
+      if(object_id === database_array[i].id){
+        return database_array[i]
       }
     }
   }
