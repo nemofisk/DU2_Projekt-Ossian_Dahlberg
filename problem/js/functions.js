@@ -48,12 +48,12 @@ function create_filter_element (data) {
  
       const parent = data.parent;
       const klass = data.class;
-      const text_cont = data.textContent;
+      const text_content = data.textContent;
     
       const li_dom = document.createElement("li");
       parent.appendChild(li_dom);
       li_dom.classList.add(klass);
-      li_dom.textContent = text_cont;
+      li_dom.textContent = text_content;
     
       li_dom.addEventListener("click", click_filter_element);
 
