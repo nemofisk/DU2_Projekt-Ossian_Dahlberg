@@ -224,9 +224,6 @@ function create_programme (programme) {
     }
   }
 
-
-
-
   const parent = document.querySelector("#programmes");
 
   const li_dom = document.createElement("li");
