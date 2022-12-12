@@ -218,10 +218,13 @@ function create_programme (programme) {
   li_dom.classList.add("programme");
 
   li_dom.innerHTML = `
-  <p>${programme.name}</p>
-  <p>${university.name}</p>
-  <p>${city.name}, ${country.name}</p>
-  <p>${level.name}, ${subject.name}, ${language.name}</p>
+  <div>
+    <p><strong>${programme.name}</strong></p>
+    <p>${university.name}</p>
+    <p>${city.name}, ${country.name}</p>
+    <p>${level.name}, ${subject.name}, ${language.name}</p>
+  </div>
+  
 
   <p class="bottom_programme">${city.name}, sun-index: ${city.sun}</p>
   `
