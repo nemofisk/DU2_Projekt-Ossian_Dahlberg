@@ -18,7 +18,8 @@ function click_filter_element (event) {
     NO RETURN VALUE
 
   */
-
+    event.target.classList.toggle("selected");
+    update_programmes();
 }
 
 
