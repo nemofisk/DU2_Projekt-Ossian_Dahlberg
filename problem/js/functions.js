@@ -209,46 +209,22 @@ function create_programme (programme) {
 
   */  
 
-  let university;
-  let city;
-  let country;
-  let level;
-  let subject;
-  let language;
+  const university = get_object(programme.universityID, UNIVERSITIES);
+  const city = get_object(university.cityID, CITIES);
+  const country = get_object(city.countryID, COUNTRIES);
+  const level = get_object(programme.levelID, LEVELS);
+  const subject = get_object(programme.subjectID, SUBJECTS);
+  const language = get_object(programme.languageID, LANGUAGES);
 
-  for(let i = 0; i < UNIVERSITIES.length; i++){
-    if(programme.universityID === UNIVERSITIES[i].id){
-      university = UNIVERSITIES[i];
-
-      for(let ii = 0; ii < CITIES.length; ii++){
-        if(UNIVERSITIES[i].cityID === CITIES[ii].id){
-          city = CITIES[ii];
-          
-          for(let iii = 0; iii < COUNTRIES.length; iii++){
-            if(CITIES[ii].countryID === COUNTRIES[iii].id){
-              country = COUNTRIES[iii];
-            }
-          }
-        }
+  function get_object(data_id, data_array){
+    for(let i = 0; i < data_array.length; i++){
+      if(data_id === data_array[i].id){
+        return data_array[i]
       }
     }
   }
 
-  for(let i = 0; i < LEVELS.length; i++){
-    if(programme.levelID === LEVELS[i].id){
-      level = LEVELS[i];
-    }
-  }
-  for(let i = 0; i < SUBJECTS.length; i++){
-    if(programme.subjectID === SUBJECTS[i].id){
-      subject = SUBJECTS[i];
-    }
-  }
-  for(let i = 0; i < LANGUAGES.length; i++){
-    if(programme.languageID === LANGUAGES[i].id){
-      language = LANGUAGES[i];
-    }
-  }
+
 
 
   const parent = document.querySelector("#programmes");
