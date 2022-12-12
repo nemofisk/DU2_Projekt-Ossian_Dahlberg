@@ -261,11 +261,13 @@ function update_programmes () {
   */
 
   const filtered_programmes_array = read_filters();
-
+  if(filtered_programmes_array.length > 0){
+    document.querySelector("#programmes > p").innerHTML = "";
+  }
   const programmes_list = document.querySelector("#programmes > ul");
   programmes_list.innerHTML = "";
 
-  array_each(filtered_programmes_array, create_programme);
+  
 }
 
 
