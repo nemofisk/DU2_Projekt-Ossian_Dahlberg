@@ -217,7 +217,7 @@ function create_programme (programme) {
   const language = get_object(programme.languageID, LANGUAGES);
 
   function get_object(object_id, database_array){
-    for(let i = 0; i < data_array.length; i++){
+    for(let i = 0; i < database_array.length; i++){
       if(object_id === database_array[i].id){
         return database_array[i]
       }
