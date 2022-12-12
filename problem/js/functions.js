@@ -46,7 +46,19 @@ function create_filter_element (data) {
     RETURN VALUE
       Returns a reference to the new dom-element
   */
+ 
+      const parent = data.parent;
+      const klass = data.class;
+      const text_cont = data.textContent;
+    
+      const li_dom = document.createElement("li");
+      parent.appendChild(li_dom);
+      li_dom.classList.add(klass);
+      li_dom.textContent = text_cont;
+    
+      li_dom.addEventListener("click", click_filter_element);
 
+      return li_dom;
 }
 
 
