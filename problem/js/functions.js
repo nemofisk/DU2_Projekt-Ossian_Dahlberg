@@ -262,7 +262,7 @@ function update_programmes () {
 
   const filtered_programmes_array = read_filters();
 
-  const programmes_list = document.querySelector("#programmes");
+  const programmes_list = document.querySelector("#programmes > ul");
   programmes_list.innerHTML = "";
 
   array_each(filtered_programmes_array, create_programme);
