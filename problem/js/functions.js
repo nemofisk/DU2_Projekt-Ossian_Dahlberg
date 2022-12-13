@@ -217,6 +217,16 @@ function update_programmes () {
 
   */
 
+  for(let i = 0; i < 3; i++){
+    const country_index = get_random_number(COUNTRIES.length, 0);
+    const image_index = get_random_number(COUNTRIES[country_index].imagesNormal.length, 0);
+    const image_url = COUNTRIES[country_index].imagesNormal[image_index];
+
+    const div_dom = document.querySelector("#top_images > div");
+
+    console.log(div_dom);
+  }
+
   const filtered_programmes_array = read_filters();
   if(filtered_programmes_array.length > 0){
     document.querySelector("#programmes > p").innerHTML = "";
