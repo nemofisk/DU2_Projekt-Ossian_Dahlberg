@@ -222,14 +222,12 @@ function update_programmes () {
     const image_index = get_random_number(COUNTRIES[country_index].imagesNormal.length, 0);
     const image_url = COUNTRIES[country_index].imagesNormal[image_index];
 
-    const div_dom = document.querySelector("#top_images > div");
+    const div_dom = document.querySelector("#top_images");
+    const div_dom_child = div_dom.children[i]
 
     console.log(div_dom);
 
-    if(div_dom.style.backgroundImage = ""){
-      div_dom.style.backgroundImage = `url(/media/geo_images/${image_url})`;
-    }else{
-      div_dom.nextElementSibling.style.backgroundImage = `url(/media/geo_images/${image_url})`;
+    div_dom_child.style.backgroundImage = `url(/media/geo_images/${image_url})`;
     }
 
     const filtered_programmes_array = read_filters();
@@ -243,7 +241,7 @@ function update_programmes () {
 
     array_each(filtered_programmes_array, create_programme);
   }
-}
+
 
 
 // G
