@@ -227,7 +227,7 @@ function update_programmes () {
 
     console.log(div_dom);
 
-    div_dom_child.style.backgroundImage = `url(/media/geo_images/${image_url})`;
+    div_dom_child.style.backgroundImage = `url(media/geo_images/${image_url})`;
     }
 
     const filtered_programmes_array = read_filters();
