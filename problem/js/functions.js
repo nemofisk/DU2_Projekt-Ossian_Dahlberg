@@ -203,6 +203,9 @@ function create_programme (programme) {
   const subject = get_object(programme.subjectID, SUBJECTS);
   const language = get_object(programme.languageID, LANGUAGES);
 
+  const city_image_index = get_random_number(city.imagesNormal.length, 0);
+  const city_image = city.imagesNormal[city_image_index];
+
   function get_object(object_id, database_array){
     for(let i = 0; i < database_array.length; i++){
       if(object_id === database_array[i].id){
@@ -216,6 +219,7 @@ function create_programme (programme) {
   const li_dom = document.createElement("li");
   parent.appendChild(li_dom);
   li_dom.classList.add("programme");
+  li_dom.style.backgroundImage = `url(media/geo_images/${city_image})`;
 
   li_dom.innerHTML = `
   <div>
