@@ -225,6 +225,11 @@ function update_programmes () {
     const div_dom = document.querySelector("#top_images > div");
 
     console.log(div_dom);
+
+    if(div_dom.style.backgroundImage = ""){
+      div_dom.style.backgroundImage = `url(/media/geo_images/${image_url})`;
+    }else{
+      div_dom.nextElementSibling.style.backgroundImage = `url(/media/geo_images/${image_url})`;
   }
 
   const filtered_programmes_array = read_filters();
