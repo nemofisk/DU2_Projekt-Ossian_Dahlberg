@@ -230,18 +230,19 @@ function update_programmes () {
       div_dom.style.backgroundImage = `url(/media/geo_images/${image_url})`;
     }else{
       div_dom.nextElementSibling.style.backgroundImage = `url(/media/geo_images/${image_url})`;
-  }
+    }
 
-  const filtered_programmes_array = read_filters();
-  if(filtered_programmes_array.length > 0){
-    document.querySelector("#programmes > p").innerHTML = "";
-  }else{
-    document.querySelector("#programmes > p").innerHTML = "Inga program upfyller nuvarande filter.";
-  }
-  const programmes_list = document.querySelector("#programmes > ul");
-  programmes_list.innerHTML = "";
+    const filtered_programmes_array = read_filters();
+    if(filtered_programmes_array.length > 0){
+      document.querySelector("#programmes > p").innerHTML = "";
+    }else{
+      document.querySelector("#programmes > p").innerHTML = "Inga program upfyller nuvarande filter.";
+    }
+    const programmes_list = document.querySelector("#programmes > ul");
+    programmes_list.innerHTML = "";
 
-  array_each(filtered_programmes_array, create_programme);
+    array_each(filtered_programmes_array, create_programme);
+  }
 }
 
 
