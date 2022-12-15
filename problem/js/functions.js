@@ -106,7 +106,7 @@ function add_group_toggling(filter_container_dom) {
 
   array_each(all_filter_lists, add_event_for_each_filter)
   function add_event_for_each_filter(filter_list) {
-    const filter_list_parent_ID = filter_list.parent.id;
+    const filter_list_parent_ID = filter_list.parentElement.id;
     console.log(filter_list_parent_ID);
     function add_event(filter) {
       filter.addEventListener
