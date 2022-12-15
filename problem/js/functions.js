@@ -149,28 +149,20 @@ function toggle_cities(event) {
   */
 
   const madrid_li_dom = document.querySelector("#country_0 > .filter_list > li");
-  const all_country_filter_lists = document.querySelectorAll("#country_filter > .filter_container > ul");
+  const all_city_filters = document.querySelectorAll(".country > ul > li");
 
-  function remove_class_for_each(filter_list) {
-    array_each(filter_list, remove_class)
-
-    function remove_class(filter) {
-      filter.classList.remove("selected");
-    }
+  function remove_class(filter) {
+    filter.classList.remove("selected");
   }
-
-  function add_class_for_each(filter_list) {
-    array_each(filter_list, add_class);
-
-    function add_class(filter) {
-      filter.classList.add("selected");
-    }
+  function add_class(filter) {
+    filter.classList.add("selected");
   }
 
   if (madrid_li_dom.className === "selected") {
-    array_each(all_country_filter_lists, remove_class_for_each);
+    console.log(true);
+    array_each(all_city_filters, remove_class);
   } else {
-    array_each(all_country_filter_lists, add_class_for_each);
+    array_each(all_city_filters, add_class);
   }
 }
 
