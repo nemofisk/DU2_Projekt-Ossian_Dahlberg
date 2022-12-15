@@ -99,6 +99,8 @@ function add_group_toggling(filter_container_dom) {
     } else {
       array_each(event_target_filters, add_class);
     }
+
+    update_programmes();
   }
 
   const all_filter_lists = document.querySelectorAll(".filter_list");
