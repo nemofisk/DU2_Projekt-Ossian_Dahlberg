@@ -159,7 +159,6 @@ function toggle_cities(event) {
   }
 
   if (madrid_li_dom.className === "selected") {
-    console.log(true);
     array_each(all_city_filters, remove_class);
   } else {
     array_each(all_city_filters, add_class);
