@@ -100,6 +100,15 @@ function add_group_toggling(filter_container_dom) {
     } else {
       array_each(event_target_filters, add_class);
     }
+
+    array_each(event_target_filters, addEvent)
+    function addEvent(filter) {
+      filter.addEventListener("click", stop_bubbling);
+
+      function stop_bubbling(event) {
+        event.stopPropagation();
+      }
+    }
   }
 }
 
