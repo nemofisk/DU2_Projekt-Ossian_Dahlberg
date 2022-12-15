@@ -237,7 +237,7 @@ function update_programmes () {
     const programmes_list = document.querySelector("#programmes > ul");
     programmes_list.innerHTML = "";
 
-    array_each(filtered_programmes_array, create_programme);
+    array_each(filtered_programmes_array, create_programme); 
   }
 
 
