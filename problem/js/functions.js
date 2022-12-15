@@ -86,11 +86,20 @@ function add_group_toggling(filter_container_dom) {
   function toggle_group(event) {
     console.log(filter_container_dom);
     const first_filter_element = filter_container_dom.children[1].children[0];
+    const event_target_filters = document.querySelectorAll(`#${event.target.id} > ul > li`)
 
-    if (first_filter_element.className === "selected") {
-      console.log(true);
+    function remove_class(filter) {
+      filter.classList.remove("selected");
+    }
+    function add_class(filter) {
+      filter.classList.add("selected")
     }
 
+    if (first_filter_element.className === "selected") {
+      array_each(event_target_filters, remove_class);
+    } else {
+      array_each(event_target_filters, add_class);
+    }
   }
 }
 
@@ -100,17 +109,17 @@ function add_group_toggling(filter_container_dom) {
 function toggle_cities(event) {
 
   /*
-
+ 
     ARGUMENTS
       This function does not take any arguments
-
+ 
     SIDE EFFECTS
       This function checks the state of the first city-filter-element (Madrid).
       If it is selected then it de-selects ALL city-filter-elements
       If it is de-selected then it selects ALL city-filter-elements 
-
+ 
     NO RETURN VALUE
-
+ 
   */
 
 }
@@ -165,10 +174,10 @@ function create_filters(array, filter_name) {
     ARGUMENTS
       array: An array that will be looped through and call function "create_filter" for each element in array, must be an array.
       filter_name: A string that completes the ID of the selected parent for the new filter, must be a string.
-
+ 
     SIDE EFFECTS:
       This function loops through the array specified through the "array" argument and calls the function "create_filter" for each element in the array. An <li> HTML-element will be created for each element in the specified array that will be placed in the parent specified with the argument "filter_name", the <li> element will be given the class "selected" and it's textContent will be the value within the key "name" from the current object of the specified array.
-
+ 
     NO RETURN VALUE.
   */
 
@@ -188,10 +197,10 @@ function create_filters(array, filter_name) {
 function create_programme(programme) {
 
   /*
-
+ 
     ARGUMENT
       programme (object): One of the objects from PROGRAMMES
-
+ 
     SIDE-EFFECTS
       This function creates the HTML-element that contains all the information
       about one programme, as seen in the video / image.
@@ -199,13 +208,13 @@ function create_programme(programme) {
       VG: The background image is a random image from among the images of the city
           in which the programme is (via the university)
       G:  No background image required.
-
-
+ 
+ 
       VG: The "see more" interaction must be included.
       G:  The "see more" element is not required. And that information needs not be in place.
-
+ 
     NO RETURN VALUE
-
+ 
   */
 
   const university = get_object(programme.universityID, UNIVERSITIES);
@@ -254,16 +263,16 @@ function update_programmes() {
 
   /*
       NO ARGUMENTS
-
+ 
       SIDE EFFECTS
         This function updates the programmes shown on the page according to
         the current filter status (which filter elements are selected / unselected).
         It uses the function read_filters to know which programmes need to be included.
-
+ 
         VG: The top images (header) need to be updated here
-
+ 
       NO RETURN VALUE
-
+ 
   */
 
   for (let i = 0; i < 3; i++) {
