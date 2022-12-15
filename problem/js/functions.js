@@ -87,7 +87,7 @@ function add_group_toggling(filter_container_dom) {
     console.log(filter_container_dom);
     const first_filter_element = filter_container_dom.children[1].children[0];
 
-    if (first_filter_element.classList.includes("selected")) {
+    if (first_filter_element.className === "selected") {
       console.log(true);
     }
 
