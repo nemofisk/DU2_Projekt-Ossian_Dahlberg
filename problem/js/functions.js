@@ -113,7 +113,7 @@ function add_group_toggling(filter_container_dom) {
     array_each(filter_list_elements, add_event);
 
     function add_event(filter) {
-      filter.addEventListener("mouseenter", stop_bubbling)
+      filter.addEventListener("click", stop_bubbling)
     }
     function stop_bubbling(event) {
       event.stopPropagation();
