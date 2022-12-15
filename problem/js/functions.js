@@ -100,14 +100,16 @@ function add_group_toggling(filter_container_dom) {
     } else {
       array_each(event_target_filters, add_class);
     }
+  }
 
-    array_each(event_target_filters, addEvent)
-    function addEvent(filter) {
-      filter.addEventListener("click", stop_bubbling);
+  const all_filter_lists = document.querySelectorAll(".filter_list");
 
-      function stop_bubbling(event) {
-        event.stopPropagation();
-      }
+  array_each(all_filter_lists, add_event_for_each_filter)
+  function add_event_for_each_filter(filter_list) {
+    const filter_list_parent_ID = filter_list.parent.id;
+    console.log(filter_list_parent_ID);
+    function add_event(filter) {
+      filter.addEventListener
     }
   }
 }
