@@ -85,8 +85,15 @@ function add_group_toggling(filter_container_dom) {
 
   function toggle_group(event) {
     const first_filter_element = filter_container_dom.children[1].children[0];
-    const event_target_filters = document.querySelectorAll(`#${event.target.id} > ul > li`)
+    let event_target_filters;
 
+    if (event.target.parentElement.className.includes("filter_container")) {
+      event_target_filters = document.querySelectorAll(`#${event.target.id} > ul > li`);
+    } else {
+      if (event.target.className.includes("filter_container")) {
+        event_target_filters = document.querySelectorAll(`#${event.target.id} > ul > li`);
+      }
+    }
     function remove_class(filter) {
       filter.classList.remove("selected");
     }
