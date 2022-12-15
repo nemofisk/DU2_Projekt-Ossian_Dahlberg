@@ -157,6 +157,8 @@ function toggle_cities(event) {
   } else {
     array_each(all_city_filters, add_class);
   }
+
+  update_programmes();
 }
 
 
