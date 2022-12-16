@@ -214,8 +214,8 @@ function create_programme(programme) {
     }
   }
 
-  const entry_grade_avg = array_average(programme.entryGrades)
-  console.log(entry_grade_avg);
+  const entry_grade_avg = array_average(programme.entryGrades);
+  const success_rate = array_average(programme.successRate);
 
   const parent = document.querySelector("#programmes > ul");
 
@@ -231,13 +231,19 @@ function create_programme(programme) {
     <p>${city.name}, ${country.name}</p>
     <p>${level.name}, ${subject.name}, ${language.name}</p>
     <div class="show_more">
+    <p>Average entry grade: ${entry_grade_avg}</p>
+    <p>Success rate: ${success_rate}%</p>
+    <p>Exchange ratio: ${programme.exchangeStudents}/${localStudents}
     <div>
   </div>
   
-
   <p class="bottom_programme">${city.name}, sun-index: ${city.sun}</p>
   `
-
+  const show_more_button = document.querySelector(".show_more");
+  show_more_button.addEventListener("click", toggle_more_info);
+  function toggle_more_info(event) {
+    show_more_button.classList.toggle("more_info");
+  }
 }
 
 
