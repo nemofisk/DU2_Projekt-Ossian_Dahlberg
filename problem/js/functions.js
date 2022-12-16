@@ -236,7 +236,7 @@ function create_programme(programme) {
   <span class="extra_info">
   <p>Average entry grade: ${entry_grade_avg}</p>
   <p>Success rate: ${success_rate}%</p>
-  <p>Exchange ratio: ${programme.exchangeStudents}/${programme.localStudents}
+  <p>Exchange ratio: ${programme.exchangeStudents}/${programme.localStudents}</p>
   </span>
   </div>
   
@@ -246,7 +246,11 @@ function create_programme(programme) {
   const show_more_button = li_dom.querySelector(".more_info");
   show_more_button.addEventListener("click", toggle_show_more);
   function toggle_show_more(event) {
-    event.target.parentElement.classList.toggle("show_more")
+    if(event.target.parentElement.className.includes("extra_info")){
+      li_dom.classList.toggle("show_more");
+    }else{
+      li_dom.classList.toggle("show_more")
+    }
   }
 }
 
