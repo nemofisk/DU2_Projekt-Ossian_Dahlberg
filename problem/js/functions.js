@@ -242,8 +242,13 @@ function create_programme(programme) {
   
   <p class="bottom_programme">${city.name}, sun-index: ${city.sun}</p>
   `
-}
 
+  const show_more_button = li_dom.querySelector(".more_info");
+  show_more_button.addEventListener("click", toggle_show_more);
+  function toggle_show_more(event) {
+    event.target.parentElement.classList.toggle("show_more")
+  }
+}
 
 // G
 // CODE according to the specification
