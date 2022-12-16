@@ -214,13 +214,14 @@ function create_programme(programme) {
     }
   }
 
+  const entry_grade_avg = array_average(programme.entryGrades)
+  console.log(entry_grade_avg);
+
   const parent = document.querySelector("#programmes > ul");
 
   const li_dom = document.createElement("li");
   parent.appendChild(li_dom);
   li_dom.classList.add("programme");
-  li_dom.classList.add("more_info");
-  li_dom.classList.add("show_more");
   li_dom.style.backgroundImage = `url(media/geo_images/${city_image})`;
 
   li_dom.innerHTML = `
@@ -229,6 +230,8 @@ function create_programme(programme) {
     <p>${university.name}</p>
     <p>${city.name}, ${country.name}</p>
     <p>${level.name}, ${subject.name}, ${language.name}</p>
+    <div class="show_more">
+    <div>
   </div>
   
 
