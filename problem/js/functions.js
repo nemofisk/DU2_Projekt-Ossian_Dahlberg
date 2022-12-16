@@ -283,6 +283,8 @@ function create_programme(programme) {
   const li_dom = document.createElement("li");
   parent.appendChild(li_dom);
   li_dom.classList.add("programme");
+  li_dom.classList.add("more_info");
+  li_dom.classList.add("show_more");
   li_dom.style.backgroundImage = `url(media/geo_images/${city_image})`;
 
   li_dom.innerHTML = `
