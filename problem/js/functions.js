@@ -294,20 +294,18 @@ function create_programme(programme) {
     <p>${university.name}</p>
     <p>${city.name}, ${country.name}</p>
     <p>${level.name}, ${subject.name}, ${language.name}</p>
-    <div class="show_more">
-    <p>Average entry grade: ${entry_grade_avg}</p>
-    <p>Success rate: ${success_rate}%</p>
-    <p>Exchange ratio: ${programme.exchangeStudents}/${localStudents}
-    <div>
+  </div>
+
+  <div class="more_info">
+  <span class="extra_info">
+  <p>Average entry grade: ${entry_grade_avg}</p>
+  <p>Success rate: ${success_rate}%</p>
+  <p>Exchange ratio: ${programme.exchangeStudents}/${programme.localStudents}
+  </span>
   </div>
   
   <p class="bottom_programme">${city.name}, sun-index: ${city.sun}</p>
   `
-  const show_more_button = document.querySelector(".show_more");
-  show_more_button.addEventListener("click", toggle_more_info);
-  function toggle_more_info(event) {
-    show_more_button.classList.toggle("more_info");
-  }
 }
 
 
