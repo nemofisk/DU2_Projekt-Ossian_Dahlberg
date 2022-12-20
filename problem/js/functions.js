@@ -172,7 +172,33 @@ function toggle_cities(event) {
 // ATTENTION: You need to write the specification of all three functions:
 //            create_countries_cities_filters, create_country and create_city
 function create_countries_cities_filters() {
+
+  /* 
+  
+  ARGUMENTS
+    This function does not take any arguments
+
+  SIDE EFFECTS
+    This function loops through the array "COUNTRIES" and creates a <div> for every country that will act as a container for the city filter buttons. 
+    The function will create an <li> element for every city in the array "CITIES" that is located in the current country in the loop and will be placed in that country's container.
+    The "COUNTRIES" array is looped with the function "array_each".
+
+  NO RETURN VALUE
+  */
+
   function create_country(country) {
+
+    /*
+    
+    ARGUMENTS
+      country: An object from the "COUNTRIES" array containing the necessary keys needed for the function.
+
+    SIDE EFFECTS
+      This function will create a <div> element with the classes "country" and "filter_container", with the ID "country_" + the value in the "id" key in the object sent through the argument. The <div> will be placed in the country filter list. This <div> will act as a container for filter buttons. This function also filters the "CITIES" array to find every city that is located in the country. Then loops through the filtered city array and calls the function create_city for each element in the filtered array.
+    
+    NO RETURN VALUE
+    */
+
     const dom = document.createElement("div");
     dom.classList.add("country");
     dom.classList.add("filter_container");
@@ -192,6 +218,18 @@ function create_countries_cities_filters() {
     array_each(cities, create_city);
   }
   function create_city(city) {
+
+    /*
+    
+    ARGUMENTS
+      city: An object from the "CITIES" array that has the necessary information for the function.
+
+    SIDE EFFECTS
+      This function will create a <li> element that will act as a filter button and will be placed in the HTML-element whose ID is "country_" + the value in the "countryID" key comming from this functions argument. 
+      The text content of this <li> element will be the string contained in the "name" key comming from this functions argument.
+
+    NO RETURN VALUE
+    */
 
     const dom = create_filter_element({
       parent: document.querySelector(`#country_${city.countryID} > ul`),
