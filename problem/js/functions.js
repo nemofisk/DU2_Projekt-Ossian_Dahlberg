@@ -191,7 +191,7 @@ function create_countries_cities_filters() {
     /*
     
     ARGUMENTS
-      country: An object from the "COUNTRIES" array containing the necessary keys needed for the function.
+      country (object): An object from the "COUNTRIES" array containing the necessary keys needed for the function.
 
     SIDE EFFECTS
       This function will create a <div> element with the classes "country" and "filter_container", with the ID "country_" + the value in the "id" key in the object sent through the argument. The <div> will be placed in the country filter list. This <div> will act as a container for filter buttons. This function also filters the "CITIES" array to find every city that is located in the country. Then loops through the filtered city array and calls the function create_city for each element in the filtered array.
@@ -222,7 +222,7 @@ function create_countries_cities_filters() {
     /*
     
     ARGUMENTS
-      city: An object from the "CITIES" array that has the necessary information for the function.
+      city (object): An object from the "CITIES" array that has the necessary information for the function.
 
     SIDE EFFECTS
       This function will create a <li> element that will act as a filter button and will be placed in the HTML-element whose ID is "country_" + the value in the "countryID" key comming from this functions argument. 
@@ -407,6 +407,19 @@ function update_programmes() {
 // Optional VG: Which parts of the function's code could be abstracted?
 //              Implement it
 function read_filters() {
+
+  /*
+  
+  ARGUMENTS
+    This function does not take any arguments
+
+  SIDE EFFECTS
+    This function will filter the programmes in the array "PROGRAMMES" to see which programmes meet the requirements to be shown on the website, these requirements depends on which filters that are marked on the website. The function creates an array "programmes" which starts off being filled depending on what universities that are located in the selected cities, the "programmes" array is then filtered by levels, languages and subjects.
+
+  RETURN VALUE
+    This function returns an array with objects from the array "PROGRAMMES"
+  
+  */
 
   const city_selected_dom = document.querySelectorAll("#country_filter li.selected");
 
