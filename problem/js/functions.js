@@ -110,23 +110,6 @@ function add_group_toggling(filter_container_dom) {
     update_programmes();
   }
 
-  const all_filter_lists = document.querySelectorAll(".filter_list");
-
-  array_each(all_filter_lists, add_event_for_each_filter)
-
-  function add_event_for_each_filter(filter_list) {
-    const filter_list_parent_ID = filter_list.parentElement.id;
-    const filter_list_elements = document.querySelectorAll(`#${filter_list_parent_ID} > ul > li`);
-
-    array_each(filter_list_elements, add_event);
-
-    function add_event(filter) {
-      filter.addEventListener("click", stop_bubbling)
-    }
-    function stop_bubbling(event) {
-      event.stopPropagation();
-    }
-  }
 }
 
 
