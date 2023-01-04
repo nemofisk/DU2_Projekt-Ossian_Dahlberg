@@ -218,9 +218,8 @@ function update_programmes () {
   */
 
   for(let i = 0; i < 3; i++){
-    const country_index = get_random_number(COUNTRIES.length, 0);
-    const image_index = get_random_number(COUNTRIES[country_index].imagesNormal.length, 0);
-    const image_url = COUNTRIES[country_index].imagesNormal[image_index];
+    const country = array_random_element(COUNTRIES);
+    const image_url = array_random_element(country.imagesNormal);
     
     const div_dom = document.querySelector("#top_images");
     const div_dom_child = div_dom.children[i]
