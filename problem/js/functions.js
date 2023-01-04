@@ -164,9 +164,7 @@ function create_countries_cities_filters() {
     This function does not take any arguments
 
   SIDE EFFECTS
-    This function loops through the array "COUNTRIES" and creates a <div> for every country that will act as a container for the city filter buttons. 
-    The function will create an <li> element for every city in the array "CITIES" that is located in the current country in the loop and will be placed in that country's container.
-    The "COUNTRIES" array is looped with the function "array_each".
+    This function will call the function "array_each" that will loop through the array "COUNTRIES" and call the function "create_country" for each element in the array "COUNTRIES".
 
   NO RETURN VALUE
   */
@@ -179,7 +177,7 @@ function create_countries_cities_filters() {
       country (object): An object from the "COUNTRIES" array containing the necessary keys needed for the function.
 
     SIDE EFFECTS
-      This function will create a <div> element with the classes "country" and "filter_container", with the ID "country_" + the value in the "id" key in the object sent through the argument. The <div> will be placed in the country filter list. This <div> will act as a container for filter buttons. This function also filters the "CITIES" array to find every city that is located in the country. Then loops through the filtered city array and calls the function create_city for each element in the filtered array.
+      This function will create a <div> element with the classes "country" and "filter_container", with the ID "country_" + the value in the "id" key in the object sent through the argument. The <div> will be placed in the HTML-element with the ID "country_filter". This <div> will act as a container for filter buttons. This function also filters the "CITIES" array to find every city that is located in the country. Then loops through the filtered city array and calls the function create_city for each element in the filtered array.
     
     NO RETURN VALUE
     */
@@ -238,11 +236,11 @@ function create_filters(array, filter_name) {
 
   /* 
     ARGUMENTS
-      array: An array that will be looped through and call function "create_filter" for each element in array, must be an array.
-      filter_name: A string that completes the ID of the selected parent for the new filter, must be a string.
+      array: An array that will be looped through and call the function "create_filter" for each element in the array, must be an array.
+      filter_name: A string that completes the ID of the HTML-element that will be the parent for the new filter, must be a string.
  
     SIDE EFFECTS:
-      This function loops through the array specified through the "array" argument and calls the function "create_filter" for each element in the array. An <li> HTML-element will be created for each element in the specified array that will be placed in the parent specified with the argument "filter_name", the <li> element will be given the class "selected" and it's textContent will be the value within the key "name" from the current object of the specified array.
+      This function loops through the array that is specified through the "array" argument and calls the function "create_filter" for each element in that array. A <li> HTML-element will be created for each element in the specified array that will be placed in the parent specified with the argument "filter_name", the <li> element will be given the class "selected" and it's textContent will be the value within the key "name" from the current object of the specified array.
  
     NO RETURN VALUE.
   */
@@ -290,8 +288,7 @@ function create_programme(programme) {
   const subject = get_object(programme.subjectID, SUBJECTS);
   const language = get_object(programme.languageID, LANGUAGES);
 
-  const city_image_index = get_random_number(city.imagesNormal.length, 0);
-  const city_image = city.imagesNormal[city_image_index];
+  const city_image = array_random_element(city.imagesNormal);
 
   function get_object(object_id, database_array) {
     for (let i = 0; i < database_array.length; i++) {
