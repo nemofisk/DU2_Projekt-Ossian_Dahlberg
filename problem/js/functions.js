@@ -152,11 +152,11 @@ function create_filters(array, filter_name){
 
   /* 
     ARGUMENTS
-      array: An array that will be looped through and call function "create_filter" for each element in array, must be an array.
-      filter_name: A string that completes the ID of the selected parent for the new filter, must be a string.
+      array: An array that will be looped through and call the function "create_filter" for each element in the array.
+      filter_name: A string that completes the ID of the HTML-element that will be the parent for the new filter.
 
     SIDE EFFECTS:
-      This function loops through the array specified through the "array" argument and calls the function "create_filter" for each element in the array. An <li> HTML-element will be created for each element in the specified array that will be placed in the parent specified with the argument "filter_name", the <li> element will be given the class "selected" and it's textContent will be the value within the key "name" from the current object of the specified array.
+      This function loops through the array that is specified through the "array" argument and calls the function "create_filter" for each element in that array. A <li> HTML-element will be created for each element in the specified array that will be placed in the parent specified with the argument "filter_name", the <li> element will be given the class "selected" and it's textContent will be the value within the key "name" from the current object of the specified array.
 
     NO RETURN VALUE.
   */
