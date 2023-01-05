@@ -356,7 +356,7 @@ function update_programmes() {
  
   */
 
-  for (let i = 0; i < 3; i++) {
+  for(let i = 0; i < 3; i++){
     const country = array_random_element(COUNTRIES);
     const image_url = array_random_element(country.imagesNormal);
 
@@ -367,9 +367,9 @@ function update_programmes() {
   }
 
   const filtered_programmes_array = read_filters();
-  if (filtered_programmes_array.length > 0) {
+  if(filtered_programmes_array.length > 0){
     document.querySelector("#programmes > p").innerHTML = "";
-  } else {
+  }else{
     document.querySelector("#programmes > p").innerHTML = "Inga program upfyller nuvarande filter.";
   }
   const programmes_list = document.querySelector("#programmes > ul");
