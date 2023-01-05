@@ -85,7 +85,7 @@ function add_group_toggling(filter_container_dom) {
       filter.classList.remove("selected");
     }
     function add_class(filter){
-      filter.classList.add("selected")
+      filter.classList.add("selected");
     }
 
     if(first_filter_element.className === "selected"){
