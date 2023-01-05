@@ -290,7 +290,7 @@ function create_programme(programme) {
 
   const city_image = array_random_element(city.imagesNormal);
 
-  function get_object(object_id, database_array) {
+  function get_object(object_id, database_array){
     for (let i = 0; i < database_array.length; i++) {
       if (object_id === database_array[i].id) {
         return database_array[i]
@@ -329,7 +329,7 @@ function create_programme(programme) {
 
   const show_more_button = li_dom.querySelector(".more_info");
   show_more_button.addEventListener("click", toggle_show_more);
-  function toggle_show_more(event) {
+  function toggle_show_more(event){
     if(event.target.parentElement.className.includes("extra_info")){
       li_dom.classList.toggle("show_more");
     }else{
