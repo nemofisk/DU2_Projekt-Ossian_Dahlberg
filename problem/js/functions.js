@@ -100,7 +100,7 @@ function add_group_toggling(filter_container_dom) {
       filter.classList.remove("selected");
     }
     function add_class(filter){
-      filter.classList.add("selected")
+      filter.classList.add("selected");
     }
 
     if(first_filter_element.className === "selected"){
@@ -253,7 +253,7 @@ function create_filters(array, filter_name) {
     })
     dom.dataset.id = filter_object.id;
   }
-  array_each(array, create_filter)
+  array_each(array, create_filter);
 }
 
 // G / VG (see details in specification)
@@ -293,7 +293,7 @@ function create_programme(programme) {
   function get_object(object_id, database_array){
     for(let i = 0; i < database_array.length; i++){
       if(object_id === database_array[i].id){
-        return database_array[i]
+        return database_array[i];
       }
     }
   }
@@ -333,7 +333,7 @@ function create_programme(programme) {
     if(event.target.parentElement.className.includes("extra_info")){
       li_dom.classList.toggle("show_more");
     }else{
-      li_dom.classList.toggle("show_more")
+      li_dom.classList.toggle("show_more");
     }
   }
 }
@@ -361,7 +361,7 @@ function update_programmes() {
     const image_url = array_random_element(country.imagesNormal);
 
     const div_dom = document.querySelector("#top_images");
-    const div_dom_child = div_dom.children[i]
+    const div_dom_child = div_dom.children[i];
 
     div_dom_child.style.backgroundImage = `url(media/geo_images/${image_url})`;
   }
