@@ -233,11 +233,11 @@ function create_programme(programme) {
   </div>
 
   <div class="more_info">
-  <span class="extra_info">
-  <p>Average entry grade: ${entry_grade_avg}</p>
-  <p>Success rate: ${success_rate}%</p>
-  <p>Exchange ratio: ${programme.exchangeStudents}/${programme.localStudents}</p>
-  </span>
+    <span class="extra_info">
+      <p>Average entry grade: ${entry_grade_avg}</p>
+      <p>Success rate: ${success_rate}%</p>
+      <p>Exchange ratio: ${programme.exchangeStudents}/${programme.localStudents}</p>
+    </span>
   </div>
   
   <p class="bottom_programme">${city.name}, sun-index: ${city.sun}</p>
