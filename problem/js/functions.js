@@ -208,7 +208,7 @@ function create_programme(programme) {
   function get_object(object_id, database_array){
     for(let i = 0; i < database_array.length; i++){
       if(object_id === database_array[i].id){
-        return database_array[i]
+        return database_array[i];
       }
     }
   }
@@ -248,7 +248,7 @@ function create_programme(programme) {
     if(event.target.parentElement.className.includes("extra_info")){
       li_dom.classList.toggle("show_more");
     }else{
-      li_dom.classList.toggle("show_more")
+      li_dom.classList.toggle("show_more");
     }
   }
 }
