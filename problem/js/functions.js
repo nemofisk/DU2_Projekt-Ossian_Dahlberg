@@ -156,7 +156,7 @@ function create_filters(array, filter_name){
     })
     dom.dataset.id = filter_object.id;
   }
-  array_each(array, create_filter)
+  array_each(array, create_filter);
 }
 
 // G / VG (see details in specification)
