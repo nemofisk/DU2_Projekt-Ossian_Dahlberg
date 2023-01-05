@@ -152,19 +152,40 @@ function create_countries_cities_filters() {
 //    As you can see, all three functions below do basically the same thing.
 //    Abstract them to one function, and write the specification of that function.
 
-function create_filters(array, filter_name) {
-
-  /* 
-    ARGUMENTS
-      array: An array that will be looped through and call function "create_filter" for each element in array, must be an array.
-      filter_name: A string that completes the ID of the selected parent for the new filter, must be a string.
- 
-    SIDE EFFECTS:
-      This function loops through the array specified through the "array" argument and calls the function "create_filter" for each element in the array. An <li> HTML-element will be created for each element in the specified array that will be placed in the parent specified with the argument "filter_name", the <li> element will be given the class "selected" and it's textContent will be the value within the key "name" from the current object of the specified array.
- 
-    NO RETURN VALUE.
-  */
-
+function create_levels_filter() {
+  function create_level(level) {
+    const dom = create_filter_element({
+      parent: document.querySelector("#level_filter > ul"),
+      class: "selected",
+      textContent: level.name,
+    });
+    dom.dataset.id = level.id;
+  }
+  array_each(LEVELS, create_level);
+}
+// Create Subjects Filter
+function create_subjects_filter() {
+  function create_subject(subject) {
+    const dom = create_filter_element({
+      parent: document.querySelector("#subject_filter > ul"),
+      class: "selected",
+      textContent: subject.name,
+    });
+    dom.dataset.id = subject.id;
+  }
+  array_each(SUBJECTS, create_subject);
+}
+// Create Search Field
+function create_language_filter() {
+  function create_element(data) {
+    const dom = create_filter_element({
+      parent: document.querySelector("#language_filter > ul"),
+      class: "selected",
+      textContent: data.name,
+    });
+    dom.dataset.id = data.id;
+  }
+  array_each(LANGUAGES, create_element);
 }
 
 // G / VG (see details in specification)
