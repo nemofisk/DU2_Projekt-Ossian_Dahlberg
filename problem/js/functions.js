@@ -144,16 +144,16 @@ function toggle_cities(event) {
   const madrid_li_dom = document.querySelector("#country_0 > .filter_list > li");
   const all_city_filters = document.querySelectorAll(".country > ul > li");
 
-  function remove_class(filter) {
+  function remove_class(filter){
     filter.classList.remove("selected");
   }
-  function add_class(filter) {
+  function add_class(filter){
     filter.classList.add("selected");
   }
 
-  if (madrid_li_dom.className === "selected") {
+  if(madrid_li_dom.className === "selected"){
     array_each(all_city_filters, remove_class);
-  } else {
+  }else{
     array_each(all_city_filters, add_class);
   }
 
