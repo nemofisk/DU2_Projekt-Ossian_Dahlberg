@@ -291,8 +291,8 @@ function create_programme(programme) {
   const city_image = array_random_element(city.imagesNormal);
 
   function get_object(object_id, database_array){
-    for (let i = 0; i < database_array.length; i++) {
-      if (object_id === database_array[i].id) {
+    for(let i = 0; i < database_array.length; i++){
+      if(object_id === database_array[i].id){
         return database_array[i]
       }
     }
