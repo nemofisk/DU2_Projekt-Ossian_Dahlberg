@@ -51,12 +51,12 @@ function create_filter_element(data) {
 
   const parent = data.parent;
   const klass = data.class;
-  const text_cont = data.textContent;
+  const filter_name = data.textContent;
 
   const li_dom = document.createElement("li");
   parent.appendChild(li_dom);
   li_dom.classList.add(klass);
-  li_dom.textContent = text_cont;
+  li_dom.textContent = filter_name;
 
   li_dom.addEventListener("click", click_filter_element);
 
@@ -174,7 +174,7 @@ function create_countries_cities_filters() {
     /*
     
     ARGUMENTS
-      country (object): An object from the "COUNTRIES" array containing the necessary keys needed for the function.
+      country (object): An object from the "COUNTRIES" array containing, among other keys, the keys "id" and "name" that is needed for this function.
 
     SIDE EFFECTS
       This function will create a <div> element with the classes "country" and "filter_container", with the ID "country_" + the value in the "id" key in the object sent through the argument. The <div> will be placed in the HTML-element with the ID "country_filter". This <div> will act as a container for filter buttons. This function also filters the "CITIES" array to find every city that is located in the country. Then loops through the filtered city array and calls the function create_city for each element in the filtered array.
@@ -205,7 +205,7 @@ function create_countries_cities_filters() {
     /*
     
     ARGUMENTS
-      city (object): An object from the "CITIES" array that has the necessary information for the function.
+      city (object): An object from the "CITIES" array containing, among other keys, the keys "id", "name" and "countryID" that is needed for this function.
 
     SIDE EFFECTS
       This function will create a <li> element that will act as a filter button and will be placed in the HTML-element whose ID is "country_" + the value in the "countryID" key comming from this functions argument. 
