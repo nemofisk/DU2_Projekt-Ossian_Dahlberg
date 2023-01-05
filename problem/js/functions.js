@@ -395,7 +395,7 @@ function read_filters() {
     This function does not take any arguments
 
   SIDE EFFECTS
-    This function will filter the elements in the array "PROGRAMMES" to see which programmes meet the requirements to be shown on the website, these requirements depends on which filters that are marked on the website. The function creates an array "programmes" which starts off being filled with programmes from the universities that are located in the selected cities, the "programmes" array is then filtered by levels, languages and subjects.
+    This function will filter the elements in the array "PROGRAMMES" to see which programmes meet the requirements to be shown on the website, these requirements depends on which filters that are marked on the website. The function creates an array "programmes" which starts off being filled with programmes from the universities that are located in the selected cities, the "programmes" array is then filtered by levels, languages, subjects and the search field if there is written anything.
 
   RETURN VALUE
     This function returns an array with objects from the array "PROGRAMMES"
