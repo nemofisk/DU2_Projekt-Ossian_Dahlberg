@@ -1,4 +1,4 @@
-
+"use strict";
 // G
 // CODE According to specification
 function click_filter_element(event) {
