@@ -85,27 +85,27 @@ function add_group_toggling(filter_container_dom) {
 
   filter_container_dom.addEventListener("click", toggle_group);
 
-  function toggle_group(event) {
+  function toggle_group(event){
     const first_filter_element = filter_container_dom.children[1].children[0];
     let event_target_filters;
 
-    if (event.target.parentElement.className.includes("filter_container")) {
+    if(event.target.parentElement.className.includes("filter_container")){
       event_target_filters = document.querySelectorAll(`#${event.target.parentElement.id} > ul > li`);
-    } else {
-      if (event.target.className.includes("filter_container")) {
+    }else{
+      if(event.target.className.includes("filter_container")){
         event_target_filters = document.querySelectorAll(`#${event.target.id} > ul > li`);
       }
     }
-    function remove_class(filter) {
+    function remove_class(filter){
       filter.classList.remove("selected");
     }
-    function add_class(filter) {
+    function add_class(filter){
       filter.classList.add("selected")
     }
 
-    if (first_filter_element.className === "selected") {
+    if(first_filter_element.className === "selected"){
       array_each(event_target_filters, remove_class);
-    } else {
+    }else{
       array_each(event_target_filters, add_class);
     }
 
