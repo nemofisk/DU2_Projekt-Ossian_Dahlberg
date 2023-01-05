@@ -18,8 +18,7 @@ function click_filter_element(event) {
     NO RETURN VALUE
 
   */
-  event.target.classList.toggle("selected");
-  update_programmes();
+
 }
 
 
@@ -47,18 +46,6 @@ function create_filter_element(data) {
       Returns a reference to the new dom-element
   */
 
-  const parent = data.parent;
-  const klass = data.class;
-  const text_cont = data.textContent;
-
-  const li_dom = document.createElement("li");
-  parent.appendChild(li_dom);
-  li_dom.classList.add(klass);
-  li_dom.textContent = text_cont;
-
-  li_dom.addEventListener("click", click_filter_element);
-
-  return li_dom;
 }
 
 
@@ -177,28 +164,40 @@ function create_countries_cities_filters() {
 //    As you can see, all three functions below do basically the same thing.
 //    Abstract them to one function, and write the specification of that function.
 
-function create_filters(array, filter_name) {
-
-  /* 
-    ARGUMENTS
-      array: An array that will be looped through and call function "create_filter" for each element in array, must be an array.
-      filter_name: A string that completes the ID of the selected parent for the new filter, must be a string.
- 
-    SIDE EFFECTS:
-      This function loops through the array specified through the "array" argument and calls the function "create_filter" for each element in the array. An <li> HTML-element will be created for each element in the specified array that will be placed in the parent specified with the argument "filter_name", the <li> element will be given the class "selected" and it's textContent will be the value within the key "name" from the current object of the specified array.
- 
-    NO RETURN VALUE.
-  */
-
-  function create_filter(filter_object) {
+function create_levels_filter() {
+  function create_level(level) {
     const dom = create_filter_element({
-      parent: document.querySelector(`#${filter_name}_filter > ul`),
+      parent: document.querySelector("#level_filter > ul"),
       class: "selected",
-      textContent: filter_object.name,
-    })
-    dom.dataset.id = filter_object.id;
+      textContent: level.name,
+    });
+    dom.dataset.id = level.id;
   }
-  array_each(array, create_filter)
+  array_each(LEVELS, create_level);
+}
+// Create Subjects Filter
+function create_subjects_filter() {
+  function create_subject(subject) {
+    const dom = create_filter_element({
+      parent: document.querySelector("#subject_filter > ul"),
+      class: "selected",
+      textContent: subject.name,
+    });
+    dom.dataset.id = subject.id;
+  }
+  array_each(SUBJECTS, create_subject);
+}
+// Create Search Field
+function create_language_filter() {
+  function create_element(data) {
+    const dom = create_filter_element({
+      parent: document.querySelector("#language_filter > ul"),
+      class: "selected",
+      textContent: data.name,
+    });
+    dom.dataset.id = data.id;
+  }
+  array_each(LANGUAGES, create_element);
 }
 
 // G / VG (see details in specification)
@@ -226,43 +225,6 @@ function create_programme(programme) {
  
   */
 
-  const university = get_object(programme.universityID, UNIVERSITIES);
-  const city = get_object(university.cityID, CITIES);
-  const country = get_object(city.countryID, COUNTRIES);
-  const level = get_object(programme.levelID, LEVELS);
-  const subject = get_object(programme.subjectID, SUBJECTS);
-  const language = get_object(programme.languageID, LANGUAGES);
-
-  const city_image_index = get_random_number(city.imagesNormal.length, 0);
-  const city_image = city.imagesNormal[city_image_index];
-
-  function get_object(object_id, database_array) {
-    for (let i = 0; i < database_array.length; i++) {
-      if (object_id === database_array[i].id) {
-        return database_array[i]
-      }
-    }
-  }
-
-  const parent = document.querySelector("#programmes > ul");
-
-  const li_dom = document.createElement("li");
-  parent.appendChild(li_dom);
-  li_dom.classList.add("programme");
-  li_dom.style.backgroundImage = `url(media/geo_images/${city_image})`;
-
-  li_dom.innerHTML = `
-  <div>
-    <p><strong>${programme.name}</strong></p>
-    <p>${university.name}</p>
-    <p>${city.name}, ${country.name}</p>
-    <p>${level.name}, ${subject.name}, ${language.name}</p>
-  </div>
-  
-
-  <p class="bottom_programme">${city.name}, sun-index: ${city.sun}</p>
-  `
-
 }
 
 
@@ -284,27 +246,6 @@ function update_programmes() {
  
   */
 
-  for (let i = 0; i < 3; i++) {
-    const country_index = get_random_number(COUNTRIES.length, 0);
-    const image_index = get_random_number(COUNTRIES[country_index].imagesNormal.length, 0);
-    const image_url = COUNTRIES[country_index].imagesNormal[image_index];
-
-    const div_dom = document.querySelector("#top_images");
-    const div_dom_child = div_dom.children[i]
-
-    div_dom_child.style.backgroundImage = `url(media/geo_images/${image_url})`;
-  }
-
-  const filtered_programmes_array = read_filters();
-  if (filtered_programmes_array.length > 0) {
-    document.querySelector("#programmes > p").innerHTML = "";
-  } else {
-    document.querySelector("#programmes > p").innerHTML = "Inga program upfyller nuvarande filter.";
-  }
-  const programmes_list = document.querySelector("#programmes > ul");
-  programmes_list.innerHTML = "";
-
-  array_each(filtered_programmes_array, create_programme);
 }
 
 
