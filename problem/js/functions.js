@@ -245,7 +245,7 @@ function create_filters(array, filter_name) {
     NO RETURN VALUE.
   */
 
-  function create_filter(filter_object) {
+  function create_filter(filter_object){
     const dom = create_filter_element({
       parent: document.querySelector(`#${filter_name}_filter > ul`),
       class: "selected",
